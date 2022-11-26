@@ -38,6 +38,7 @@ else if(empty($pass)){
          $_SESSION['gender']=$row['gender'];
          $_SESSION['lastname']=$row['lastname'];
          $_SESSION['email']=$row['email'];
+         
         // echo $_SESSION['id'];
              
             header("Location: home.php");

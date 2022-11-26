@@ -42,10 +42,12 @@ li a:hover {
   <li><a href="account.php">Account</a></li>
   <?php 
    if(isset($_SESSION['id'])) {  ?>
-       
-  <li><a href="signup.php">sign up</a></li>
+   
+  <li><a href="signup.php">Sign Up</a></li>
   
    <?php } else { ?>
+    <li><a href="view.php">Dashboard</a></li>
+    <li><a href="index1.php">Upload</a></li>
   <li style="padding-left: 200px;"><a href="logout.php">Logout</a></li>
   <?php }?>
 </ul>  

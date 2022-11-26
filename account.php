@@ -1,5 +1,6 @@
 <?php
  session_start();
+ include "config.php";
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +65,25 @@ li a:hover {
     <h3>Email:<?php echo $_SESSION['email'];?></h3>
     <h3>Gender:<?php echo $_SESSION['gender'];?></h3>
     
-    <a style = "font-size: 30px; text-decoration:none;color:rgb(150, 4, 186);  font-weight: bold;" href="logout.php"></b>logout</a><br>
+    <?php 
+        $id=$_SESSION['id'];
+        $sql="SELECT * FROM post where user_id='$id' ";
+        $res=mysqli_query($conn,$sql);
+        if(mysqli_num_rows($res)>0){
+            while($images=mysqli_fetch_assoc($res)){?>
+            <div style="border-style: inset;">
+                <h3> <?php echo $images['user_id']; ?> </h3>
+                <h3> <?php echo $images['user_name']; ?></h3>
+                <h3> <?php echo $images['description']; ?></h3>
+                <h3> <?php echo $images['location']; ?></h3>
+                <h3> <?php echo $images['date']; ?></h3>
+                <img src="uploads/<?=$images['img_url']?>" style="width:500px;height:300px;">
+                <a href="index2.php?post_id=<?php echo $image['post_id'];?>">Edit</a>
+                <a href="delete.php?post_id=<?php echo $image['post_id'];?>">Edit</a>
+                <br><br>
+                
+            </div>
+            <?php }}?>
    <?php 
    } else{ ?>
    <h2><a style = "font-size: 30px; color:rgb(150, 4, 186); text-decoration:none; padding: 100px;  font-weight: bold;" href="login.php">Login Required</a></h2>
