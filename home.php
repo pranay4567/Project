@@ -1,10 +1,14 @@
+<?php
+ session_start();
+ include "config.php";
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <title>Civic Problem</title>
 <head>
 <style>
 body {
-  background-image: url('bg1.jpg');
+  background-image: url('https://img.freepik.com/free-vector/social-media-network_74855-4575.jpg?w=2000');
   background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
@@ -38,21 +42,21 @@ li a:hover {
 </head>
 <body>
 <ul>
-  
-  <li><a href="account.php">Account</a></li>
-  <?php 
+<li> <a href="home.php">Home</a></li>
+<li><a href="account.php">Account</a></li>
+<li><a href="view.php">Dashboard</a></li>
+<?php 
    if(isset($_SESSION['id'])) {  ?>
-   
-  <li><a href="signup.php">Sign Up</a></li>
+   <li><a href="index1.php">Upload</a></li>
+  <li style="padding-left: 200px;"><a href="logout.php">Logout</a></li>
+  
   
    <?php } else { ?>
-    <li><a href="view.php">Dashboard</a></li>
-    <li><a href="index1.php">Upload</a></li>
-  <li style="padding-left: 200px;"><a href="logout.php">Logout</a></li>
+    <li style="padding-left: 700px; "><a href="login.php">Login/Sign Up</a></li>
   <?php }?>
+
 </ul>  
-</p>
 </body>
-<p style="font-size :70px; padding-left:150px; padding-top:100px;">post your issues</p>
+<p style="font-size :70px; padding-left:150px; padding-top:100px;">Be a Responsible  citizen<br> Post your complaint</p>
 </html>
 

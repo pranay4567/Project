@@ -62,8 +62,16 @@
     </head>
 <body>
    <div class="container">
-   <form action="index.php" method="POST">
+   <form action="create.php" method="POST">
     <h1>Sign in</h1>
+       <div class="form-group">
+        <label for="">First Name </label>
+        <input type="text" name="firstname" class="form-control" required>     
+       </div>
+       <div class="form-group">
+        <label for="">Last Name </label>
+        <input type="text" name="lastname" class="form-control" required>     
+       </div>
        <div class="form-group">
         <label for="">Email </label>
         <input type="text" name="email" class="form-control" required>     
@@ -72,11 +80,16 @@
         <label for="">Password </label>
         <input type="password" name="password" class="form-control" required>     
        </div>
-       <input type="submit" class="btn" value="Login">
+       <div class="form-group">
+        <label for="">Gender </label> &nbsp 
+        <input type="radio" name="gender" value="male"  >  &nbsp Male  &nbsp 
+        <input type="radio" name="gender" value="female" >  &nbsp  Female  
+       </div>
+       <input type="submit" class="btn" value="Register">
            <?php if(isset($_GET['error'])){ ?>
 					<p> <?php echo $_GET['error']; ?> </p>
-					<?php } ?><br>
-       <p>Don't have an account </p><a href="sign.php">Sign Up</a>
+					<?php } ?>
+       </fieldset>
    </form>
    </div>
 </body>
