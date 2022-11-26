@@ -78,8 +78,8 @@ li a:hover {
                 <h3> <?php echo $images['location']; ?></h3>
                 <h3> <?php echo $images['date']; ?></h3>
                 <img src="uploads/<?=$images['img_url']?>" style="width:500px;height:300px;">
-                <a href="index2.php?post_id=<?php echo $image['post_id'];?>">Edit</a>
-                <a href="delete.php?post_id=<?php echo $image['post_id'];?>">Edit</a>
+                <a href="index2.php?post_id=<?php echo $images['post_id'];?>">Edit</a>
+                <a href="delete.php?post_id=<?php echo $images['post_id'];?>">Delete</a>
                 <br><br>
                 
             </div>

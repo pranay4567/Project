@@ -1,6 +1,7 @@
 <?php
-include "config.php";
-?>
+ session_start();
+ include "config.php";
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +27,21 @@ include "config.php";
                 <h3> <?php echo $images['location']; ?></h3>
                 <h3> <?php echo $images['date']; ?></h3>
                 <img src="uploads/<?=$images['img_url']?>" style="width:500px;height:300px;"  >
-                
+                <h3> Number Votes <?php echo $images['votes']; ?></h3>
+                <?php 
+
+                  $post_id=$images['post_id'];
+                  $user_id=$_SESSION['id'];
+                  $sql="SELECT * FROM  votes where post_id='$post_id' AND user_id='$user_id' ";
+                  $result=$conn->query($sql);
+
+                if(mysqli_num_rows($result)>0)
+                 {  ?>
+                 <h5> You already voted</h5>
+                <?php }else{?>
+                    <a href="vote.php?post_id=<?php echo $images['post_id'];?>& user_id=<?php echo $_SESSION['id']; ?> & votes=<?php echo $images['votes']; ?>">vote</a>
+                    
+               <?php } ?>
                 <br><br>
 
             </div>

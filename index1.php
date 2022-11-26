@@ -12,8 +12,8 @@
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;" placeholder ="Description" ><br>
-    <input type="text" name="location" placeholder ="Location" ><br><br>
-        <input type="file" name="my_image"><br><br>
+    <input type="text" name="location" placeholder ="Location" ><br>
+        <input type="file" name="my_image"><br>
         <input type="submit" name="submit" value="Upload">
      </form>
 </body>

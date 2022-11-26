@@ -42,3 +42,4 @@ include "config.php";
  else{
     header("Location: index1.php");
  }
+ ?>
