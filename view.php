@@ -26,10 +26,27 @@
                 <h3> <?php echo $images['description']; ?></h3>
                 <h3> <?php echo $images['location']; ?></h3>
                 <h3> <?php echo $images['date']; ?></h3>
+                <h3> <?php echo $images['status']; ?></h3>
+
                 <img src="uploads/<?=$images['img_url']?>" style="width:500px;height:300px;"  >
                 <h3> Number Votes <?php echo $images['votes']; ?></h3>
                 <?php 
-
+                  if($images['acc_type']="admin"){ ?>
+                    <form action="status.php">
+                    <label>Post ID</label><br>
+                    <input type="text" name="post_id" value="<?php echo $images['post_id'] ; ?>" readonly><br>
+                    <label for="status">Change the status:</label>                   
+                     <select name="status" id="cars">
+                     <option value="No Action Taken">no action tacken</option>
+                     <option value="Submitted to newspaper">Submitted to newspaper</option>
+                     <option value="Resolved">Resolved</option>
+                    </select>
+                     <br><br>
+                    <input type="submit" value="Submit">
+                    </form>
+                    
+                 <?php  } else {
+                
                   $post_id=$images['post_id'];
                   $user_id=$_SESSION['id'];
                   $sql="SELECT * FROM  votes where post_id='$post_id' AND user_id='$user_id' ";
@@ -41,7 +58,7 @@
                 <?php }else{?>
                     <a href="vote.php?post_id=<?php echo $images['post_id'];?>& user_id=<?php echo $_SESSION['id']; ?> & votes=<?php echo $images['votes']; ?>">vote</a>
                     
-               <?php } ?>
+               <?php } } ?>
                 <br><br>
 
             </div>
